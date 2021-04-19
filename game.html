@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title> 
+ </head>
+ <body>
+     <script>
+        
+         function computerPlay(){
+            let randNum= Math.floor(Math.random()*3);
+            if (randNum==0) {
+                //console.log("rock");
+                return "rock";
+            }else if (randNum==1) {
+                //console.log("paper");
+                return "paper";
+            }else {
+                //console.log("scissors");
+                return "scissors";
+            }
+        }
+            
+             
+            let computerChoice = computerPlay();
+            function singleRound(playerChoice,computerChoice){
+                if (playerChoice==computerChoice){
+                    console.log(`Tie: you choose ${playerChoice} the computer chose ${computerChoice}`);
+                    return 0;
+                }else if(playerChoice == "rock" && computerChoice == "paper") {
+                    console.log( `lose: you chose ${playerChoice} the computer chose ${computerChoice}`)
+                    return -1;
+                }else if(playerChoice == "paper" && computerChoice == "scissors"){       
+                    console.log(`lose: you choose ${playerChoice} the computer chose ${computerChoice}`)
+                    return -1;
+                }else if(playerChoice == "scissors" && computerChoice == "rock"){
+                    console.log( `lose: you chose ${playerChoice} the computer chose ${computerChoice}`)
+                    return -1;
+                }
+                else if(playerChoice == "rock" && computerChoice == "scissors") {
+                    console.log( `win: you chose ${playerChoice} the computer chose ${computerChoice}`)
+                    return 1;
+                }else if(playerChoice == "paper" && computerChoice == "rock"){       
+                    console.log(`win: you choose ${playerChoice} the computer chose ${computerChoice}`)
+                    return 1;
+                }else if(playerChoice == "scissors" && computerChoice == "paper"){
+                    console.log( `win: you chose ${playerChoice} the computer chose ${computerChoice}`)
+                    return 1;
+                }
+            }
+
+
+        function gamePlay(){
+            let score = 0;
+            let playerChoice = prompt('rock, paper, scissors, shoot')
+            let computerChoice = computerPlay();
+            score+= singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt('ro, sham, bo')
+            computerChoice = computerPlay();
+            score+= singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt('Sasso carta forbici')
+            computerChoice = computerPlay();
+            score+= singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt('камень ножницы Бумага')
+            computerChoice = computerPlay();
+            score+= singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt('πέτρα ψαλίδι χαρτί')
+            computerChoice = computerPlay();
+            score+= singleRound(playerChoice,computerChoice)
+
+            console.log(score);
+            if (score ==0){
+                //return "tie";
+                console.log("you tie, boooooring watching paint dry would be better than a tie");
+            } else if (score >0){
+                //return "win";
+                console.log("you win, im suprised, wait did you rig it");
+            }else {
+                //return "lose";
+                console.log("you lose, haha didnt even stand a chance");
+            }
+
+            
+                
+            
+
+
+
+
+        }
+            
+            gamePlay();
+        
+      </script>   
+ </body>
+ </html>
